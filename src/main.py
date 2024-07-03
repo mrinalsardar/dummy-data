@@ -16,7 +16,7 @@ log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
 # Number of records
-scale_factor = 100
+scale_factor = 1
 num_customers = 500 * max(scale_factor // 10, 1)
 num_products = 100
 inventory_percentage = 95  # what percentage of products available
