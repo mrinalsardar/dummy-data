@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     log.debug("Creating interaction data [%d interactions]" % num_interactions)
     interaction_data = generate_customer_interaction_data(n=num_interactions)
-    interaction_file = Path(data_dir, "interaction_data.csv")
+    interaction_file = Path(data_dir, "customer_interaction_data.csv")
     log.debug("Storing interaction data into %s" % interaction_file)
     interaction_data.to_csv(interaction_file, index=False)
 
