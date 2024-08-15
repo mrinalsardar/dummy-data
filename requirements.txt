@@ -1,0 +1,6 @@
+pandas
+faker
+tqdm
+black
+isort
+flake8
