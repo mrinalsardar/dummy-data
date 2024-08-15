@@ -1,8 +1,8 @@
 import logging
 from pathlib import Path
 
-from scripts.competition import generate_competition_data
-from scripts.customer_interaction import generate_customer_interaction_data
+from scripts.competitions import generate_competition_data
+from scripts.customer_interactions import generate_customer_interaction_data
 from scripts.customers import generate_customer_data
 from scripts.financial import generate_financial_data
 from scripts.inventory import generate_inventory_data
@@ -15,19 +15,23 @@ from scripts.supply_chain import generate_supply_chain_data
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
+
+# Parameter
+scale_factor = 1 # Integer value
+
+
 # Number of records
-scale_factor = 1
-num_customers = 500 * max(scale_factor // 10, 1)
-num_products = 100
+num_customers = 100 * max(scale_factor, 1)
+num_products = 50 * max(scale_factor // 5, 1)
 inventory_percentage = 95  # what percentage of products available
-num_transactions = 100000 * scale_factor * 2
+num_transactions = num_customers * 50
 max_product_per_txn = 10
-num_competitions = 50 * max(scale_factor // 80, 1)
-num_interactions = 200 * scale_factor
-num_marketings = 200 * max(scale_factor // 10, 1)
-num_financials = 12 * max(scale_factor // 10, 1)
-num_operations = 100 * max(scale_factor // 10, 1)
-num_supply_chains = 50
+num_competitions = 20
+num_interactions = num_customers // 2
+num_marketings = num_customers * 10
+num_financials = 12 * min(scale_factor, 5)
+num_operations = num_customers // 50
+num_supply_chains = num_customers // 50
 
 current_dir = Path(__file__).absolute()
 data_dir = Path(current_dir.parents[1], "data")
